@@ -111,7 +111,15 @@ header a {
   justify-content: center;
   align-items: center;
 }
-
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
 .popup-inner {
   background-color: #fff;
   border-radius: 5px;
@@ -145,6 +153,15 @@ header a {
 
 .popup-inner button[type="submit"] {
   background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.popup-inner button[type="submit2"] {
+  background-color: #d41002;
   color: #fff;
   border: none;
   border-radius: 3px;

@@ -14,7 +14,6 @@ const Home = () => {
   function PopUp() {
     return (
       <Modal isOpen={isPopUpOpen} onRequestClose={togglePopUp}>
-        <h2>Add Task</h2>
         <AddTaskPopup />
       </Modal>
     );
@@ -51,7 +50,9 @@ const Home = () => {
                 <TaskDetailsInProgress key={task.id} task={task} />
               ))}
             <div>
-              <button onClick={togglePopUp}>Add Task</button>
+              <button type="submit" onClick={togglePopUp}>
+                Dodaj zadatak
+              </button>
               <PopUp />
             </div>
           </div>
