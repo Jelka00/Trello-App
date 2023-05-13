@@ -1,12 +1,12 @@
 const Task = require("../models/taskModel");
 const mongoose = require("mongoose");
-//get all workouts
+//get all tasks
 const getTasks = async (req, res) => {
   const tasks = await Task.find({}).sort({ createdAt: -1 });
 
   res.status(200).json(tasks);
 };
-//get a single workout
+//get a single task
 const getTask = async (req, res) => {
   const { id } = req.params;
 
@@ -16,12 +16,12 @@ const getTask = async (req, res) => {
 
   const task = await Task.findById(id);
   if (!task) {
-    return res.status(404).json({ error: "Nema tog taska" });
+    return res.status(404).json({ error: "Nema tog zadatka" });
   }
 
   res.status(200).json(task);
 };
-//create a new workout
+//create a new task
 const createTask = async (req, res) => {
   const { title, description, status, user } = req.body;
 
@@ -33,7 +33,7 @@ const createTask = async (req, res) => {
   }
 };
 
-//delete a workout
+//delete a task
 const deleteTask = async (req, res) => {
   const { id } = req.params;
 
@@ -50,7 +50,7 @@ const deleteTask = async (req, res) => {
   res.status(200).json(task);
 };
 
-//update a workout
+//update a task
 const updateTask = async (req, res) => {
   const { id } = req.params;
 

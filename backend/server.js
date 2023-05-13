@@ -9,6 +9,7 @@ app.use((req, res, next) => {
   console.log(req.path, req.method);
   next();
 });
+app.use(express.json());
 
 app.use("/api/tasks", tasksRoutes);
 
@@ -19,7 +20,7 @@ mongoose
 
     app.listen(process.env.PORT, () => {
       console.log(
-        "Povezano na db i lusanje zahteva na portu 4000!!!",
+        "Povezano na db i lusanje zahteva na portu ",
         process.env.PORT
       );
     });
