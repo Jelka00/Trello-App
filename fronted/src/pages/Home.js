@@ -3,7 +3,9 @@ import TaskDetailsToDo from "../components/TaskDetailsToDo";
 import TaskDetailsInProgress from "../components/TaskDetailsInProgress";
 import TaskDetailsInDone from "../components/TaskDetailsDone";
 import AddTaskPopup from "../components/AddTaskPopUp";
+
 import Modal from "react-modal";
+
 const Home = () => {
   const [tasks, setTasks] = useState(null);
   const [isPopUpOpen, setIsPopUpOpen] = useState(false);
@@ -16,6 +18,17 @@ const Home = () => {
       <Modal isOpen={isPopUpOpen} onRequestClose={togglePopUp}>
         <AddTaskPopup />
       </Modal>
+    );
+  }
+
+  function Button() {
+    return (
+      <div>
+        <button type="submit" onClick={togglePopUp}>
+          Dodaj zadatak
+        </button>
+        <PopUp />
+      </div>
     );
   }
 
@@ -49,12 +62,6 @@ const Home = () => {
               tasks.map((task) => (
                 <TaskDetailsInProgress key={task.id} task={task} />
               ))}
-            <div>
-              <button type="submit" onClick={togglePopUp}>
-                Dodaj zadatak
-              </button>
-              <PopUp />
-            </div>
           </div>
           <div class="section">
             <h2>Done</h2>
@@ -63,6 +70,9 @@ const Home = () => {
                 <TaskDetailsInDone key={task.id} task={task} />
               ))}
           </div>
+        </div>
+        <div class="bottom-section">
+          <Button />
         </div>
       </body>
     </html>

@@ -179,3 +179,10 @@ button[type="submit"] {
   font-size: 24px;
   cursor: pointer;
 }
+.bottom-section {
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}

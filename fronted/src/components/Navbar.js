@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <header>
-      <div className="footer">
+      <div className="navbar">
         <Link to="/">
           <h1>Trello App</h1>
         </Link>

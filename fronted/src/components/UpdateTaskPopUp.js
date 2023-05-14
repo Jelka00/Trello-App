@@ -1,21 +1,21 @@
 import React from "react";
 import { useState } from "react";
 
-const AddTaskPopup = () => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [status, setStatus] = useState("");
-  const [user, setUser] = useState("");
+const UpdateTaskPopup = ({ task }) => {
+  const [title, setTitle] = useState(task.title);
+  const [description, setDescription] = useState(task.description);
+  const [status, setStatus] = useState(task.status);
+  const [user, setUser] = useState(task.user);
   const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const task = { title, description, status, user };
+    const updatedTask = { title, description, status, user };
 
-    const response = await fetch("/api/tasks", {
-      method: "POST",
-      body: JSON.stringify(task),
+    const response = await fetch(`/api/tasks/${task._id}`, {
+      method: "PATCH",
+      body: JSON.stringify(updatedTask),
       headers: {
         "Content-Type": "application/json",
       },
@@ -74,7 +74,7 @@ const AddTaskPopup = () => {
             <option value="Marko">Marko</option>
             <option value="Tanja">Tanja</option>
           </select>
-          <button type="submit">Dodaj zadatak</button>
+          <button type="submit">Azuriraj zadatak</button>
           {error && <div className="error">{error}</div>}
           <br></br>
           <br></br>
@@ -84,4 +84,4 @@ const AddTaskPopup = () => {
   );
 };
 
-export default AddTaskPopup;
+export default UpdateTaskPopup;

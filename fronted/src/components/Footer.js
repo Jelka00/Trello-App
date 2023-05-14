@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <header>
-      <div className="navbar"></div>
+      <div className="footer"></div>
     </header>
   );
 };
